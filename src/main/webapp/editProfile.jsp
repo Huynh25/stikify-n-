@@ -11,45 +11,56 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Edit Profile</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="./CSS/editProfile.css"/>
+        <link rel="stylesheet" href="./CSS/editStyle.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     </head>
     <body>
         <form action="save" method="POST">
-            <h1>Edit Profile</h1>
+            <!--            <h1>Edit Profile</h1>-->
+            <div class="back">
+                <a href="PersonalHome.jsp"><i class="fa-solid fa-arrow-right-to-bracket fa-rotate-180"></i>Back</a>
+            </div>
+            <!--            <h3> <a href="PersonalHome.jsp"><i class="fa-solid fa-arrow-right-to-bracket fa-rotate-180"></i>Back</a></h3>-->
             <section class="vh-100" style="background-color: #f4f5f7;">
                 <div class="container py-5 h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col col-lg-6 mb-4 mb-lg-0">
                             <div class="card mb-3" style="border-radius: .5rem;">
-                                
-                                <c:forEach items="${userEdit}" var="userEdit">
-                                    
+
+                                <c:forEach items="${sessionScope.userEdit}" var="userEdit">
                                     <div class="row g-0">
                                         <div class="col-md-4 gradient-custom text-center text-white"
                                              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                            
-                                            <img
-                                                alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-                                            
-                                            <h5>${userEdit.fullname}</h5>
-                                            <p>${userEdit.username}</p>
+
+                                            <div class="file-input-wrapper">
+                                                <img src="./Img/avt1.png" alt="Avatar" class="img-fluid my-5" style="width: 80px; " />
+                                                <input type="file" id="avatarUpload" accept="image/*"  onclick="uploadAvatar()">
+                                            </div>
+                                            <center>
+                                                <h5>${userEdit.fullname}</h5>Le Nhu Huynh
+                                                <p>${userEdit.username}</p> nhuhuynh
+                                            </center>
+
                                         </div>
-                                        
+
                                         <div class="col-md-8">
                                             <div class="card-body p-4">
                                                 <h6>Information</h6>
                                                 <hr class="mt-0 mb-4">
                                                 <div class="row pt-1">
-                                                    
+
                                                     <div class="col-6 mb-3">
                                                         <h6>Email</h6>
                                                         <p class="text-muted">
                                                             <input type="text" name="email" value="${userEdit.email}" readonly="true">
                                                         </p>
                                                     </div>
-                                                        
+
                                                 </div>
-                                                        
+
                                                 <h6>Personal Information</h6>
                                                 <hr class="mt-0 mb-4">
                                                 <div class="row pt-1">
@@ -61,14 +72,14 @@
                                                             <input type="radio" name="gender"  value="${userEdit.gender}"> Female
                                                         </p>
                                                     </div>
-                                                    
+
                                                     <div class="col-6 mb-3">
                                                         <h6>Birthdate</h6>
                                                         <p class="text-muted">
                                                             <input type="date" name="birth" value=" ${userEdit.birthdate} "> 
                                                         </p>
                                                     </div>
-                                                        
+
                                                     <div class="col-12 mb-3">
                                                         <h6>Address</h6>
                                                         <p class="text-muted">
@@ -76,24 +87,24 @@
                                                         </p>
                                                     </div>
                                                 </div>
-                                                        
+
                                             </div>
-                                                        
+
                                             <div class="card-footer">
                                                 <button class="btn btn-primary" onclick="updateProfile()">Save Changes</button> 
                                                 <button class="btn btn-primary" type="reset" onclick=" GoExplore()">Cancel</button> 
                                             </div>
-                                                        
+
                                         </div>
                                     </div>
                                 </c:forEach>
-                                                        
+
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-                                                        
+
         </form>
         <script>
             // jQuery to handle tab switching
@@ -262,6 +273,22 @@
                 }
             }
             ;
+
+//upload ảnh
+            function uploadAvatar() {
+                var avatarInput = document.getElementById("avatarUpload");
+                var avatarImage = document.getElementById("avatarImage");
+
+                if (avatarInput.files && avatarInput.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        avatarImage.src = e.target.result;
+                    };
+
+                    reader.readAsDataURL(avatarInput.files[0]);
+                }
+            }
 
         </script>
     </body>

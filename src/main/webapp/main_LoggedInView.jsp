@@ -61,8 +61,8 @@
                                         <i class="user-no_login bi bi-person-circle"></i> 
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Personal Home</a>
-                                        <a class="dropdown-item" href="setting">Setting</a>
+                                        <a class="dropdown-item" href="PersonalVideoServlet">Personal Home</a>
+                                        <a class="dropdown-item" href="Setting">Setting</a>
                                         <a class="dropdown-item" href="logout">Logout</a>
                                     </div>
                                 </div>

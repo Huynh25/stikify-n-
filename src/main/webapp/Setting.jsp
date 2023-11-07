@@ -113,7 +113,7 @@
         <div class="container">
             <div class="head-content">
                 <h1>Setting</h1>
-                <a href="path_to_previous_page" class="btn btn-default">Back</a>
+                <a href="explore" class="btn btn-default">Back</a>
             </div>
             <div class="btn-group-vertical">
                 <div>
@@ -165,8 +165,8 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" type="button" class="btn btn-danger">Delete account</a>
-                <a href="#" type="button" class="btn btn-secondary">Logout</a>
+                <a href="deleteAccount?value=${sessionScope.username}" type="button" class="btn btn-danger">Delete account</a>
+                <a href="logout" type="button" class="btn btn-secondary">Logout</a>
             </div>
 
         </div>
