@@ -1,0 +1,350 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Oct 31, 2023, 1:54:53 PM
+    Author     : acer
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica', sans-serif;
+    /*border: 1px solid black;*/
+}
+#header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#slider{
+    margin-top: 100px;
+}
+
+.gradient {
+    background: rgb(51,30,69);
+    background: linear-gradient(90deg, rgba(51,30,69,1) 0%, rgba(93,55,126,1) 100%);
+
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.glass::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header-logo img {
+    display: block;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: right top;
+    border: 2px solid white;
+}
+
+.header-search {
+    display: flex;
+    justify-content: center;
+}
+
+.searchBar {
+    width: 140%;
+}
+
+.search-text {
+    border-top-left-radius: 50px!important;
+    border-bottom-left-radius: 50px!important;
+}
+
+.search-button {
+    font-size: 20px;
+    border-top-right-radius: 50px!important;
+    border-bottom-right-radius: 50px!important;
+    text-align: left;
+}
+
+.header,
+.user-interact {
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    background: #59C173;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #5D26C1, #a17fe0, #59C173);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5D26C1, #a17fe0, #59C173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    height: 70px;
+}
+
+.user-interact
+{
+    justify-content: flex-end;
+}
+
+.user-no_login {
+    font-size: 30px;
+    color: white;
+}
+.profile-section {
+    align-items: center;
+}
+.profile-avatar{
+    display: flex;
+    margin-top: 10px
+}
+
+.avatar-profile {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.avatar-header{
+    width: 65px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 20px auto;
+}
+.aside-left {
+    position: fixed;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 80px;
+    left: 0;
+    right: 0;
+}
+.navbar-list {
+    width: 100%;
+}
+
+.navbar-list ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.navbar-list li {
+    display: block;
+}
+
+.navbar-list a {
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+}
+
+.aside-right {
+    height: 100vh;
+    margin-left: 200px;
+}
+.btn{
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+.btn:hover{
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.upload-card{
+    border-radius: 8px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: background 0.15s ease-in-out 0s;
+    border-style: dotted;
+    border-color: rgb(174, 184, 184);
+    height: 400px;
+    width: 350px;
+}
+
+.upload-card .input{
+    display: none;
+    cursor: pointer;
+}
+.upload-card .label{
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+    border-radius: 6px;
+    border: 1px dashed #999;
+}
+.upload-card .lable:hover{
+    cursor: pointer;
+    color: #de0611;
+    border: 1px darkred;
+}
+.upload-card label{
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+.form-upload{
+    text-align: center;
+}
+.file-input-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    color: #555555;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.file-input-wrapper input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-input-wrapper span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.file-input-wrapper:hover {
+    background-color: #dddddd;
+}
+
+.file-input-wrapper:active {
+    background-color: #bfbfbf;
+}
+
+.button-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn-cancel button,
+.btn-post button {
+    background-color: #f2f2f2;
+    border: none;
+    color: #333;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    
+}
+
+.btn-cancel button {
+    margin-right: 10px;
+}
+
+.btn-post button {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.btn-post button:hover {
+    background-color: #45a049;
+}
+.checkbox-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-column label {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.form-group{
+    margin-bottom: 10px;
+}
+/* Checkbox màu tím */
+.checkbox-wrapper input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-wrapper label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+.checkbox-wrapper label::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #8a2be2; /* Màu tím */
+    border-radius: 3px;
+}
+
+.checkbox-wrapper label::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 8px;
+    background-color: #8a2be2; /* Màu tím */
+    border-radius: 1px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.checkbox-wrapper input:checked + label::after {
+    opacity: 1;
+}
+
+.checkbox-wrapper label:hover::before {
+    border-color: #6c1aaf; /* Màu tím nhạt */
+}
+
+.checkbox-wrapper input:checked:hover + label::before {
+    border-color: #6c1aaf; /* Màu tím nhạt */
+}

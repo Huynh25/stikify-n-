@@ -1,0 +1,243 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Oct 25, 2023, 7:46:25 PM
+    Author     : acer
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica', sans-serif;
+    /*border: 1px solid black;*/
+}
+#header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+#slider{
+    margin-top: 100px;
+}
+
+.gradient {
+    background: rgb(51,30,69);
+    background: linear-gradient(90deg, rgba(51,30,69,1) 0%, rgba(93,55,126,1) 100%);
+
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.glass::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header-logo img {
+    display: block;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: right top;
+    border: 2px solid white;
+}
+
+.header-search {
+    display: flex;
+    justify-content: center;
+}
+
+.searchBar {
+    width: 140%;
+}
+
+.search-text {
+    border-top-left-radius: 50px!important;
+    border-bottom-left-radius: 50px!important;
+}
+
+.search-button {
+    font-size: 20px;
+    border-top-right-radius: 50px!important;
+    border-bottom-right-radius: 50px!important;
+    text-align: left;
+}
+
+.header,
+.user-interact {
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    background: #59C173;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #5D26C1, #a17fe0, #59C173);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5D26C1, #a17fe0, #59C173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    height: 70px;
+}
+
+.user-interact
+{
+    justify-content: flex-end;
+}
+
+.profile-section {
+    align-items: center;
+}
+.profile-avatar{
+    display: flex;
+    margin-top: 10px
+}
+
+.avatar-profile {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.avatar-header{
+    width: 65px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 20px auto;
+}
+
+.username {
+    font-size: 24px;
+    font-weight: bold;
+    
+}
+
+.bio {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: flex;
+    margin-bottom: 20px;
+    margin-left: 90px;
+}
+
+.stats-item {
+    text-align: center;
+    margin: 0 10px;
+}
+
+.stats-label {
+    font-size: 14px;
+    color: #888;
+}
+
+.stats-value {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.aside-left {
+    position: fixed;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 80px;
+    left: 0;
+    right: 0;
+}
+.navbar-list {
+    width: 100%;
+}
+
+.navbar-list ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.navbar-list li {
+    display: block;
+}
+
+.navbar-list a {
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+}
+
+.aside-right {
+    height: 100vh;
+    margin-left: 200px;
+}
+
+.emotion a{
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+}
+
+.btn{
+    border: 1px solid rgba(255, 255, 255, 0.3);
+     color: white;
+}
+.btn:hover{
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+.video-item video {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.video-content-status1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 50px;
+    max-width: calc(100%);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.editProfile a{
+    margin-left: 100px;
+}

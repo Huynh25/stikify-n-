@@ -1,0 +1,116 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : Nov 1, 2023, 3:54:49 PM
+    Author     : Tran Nguyen Nam Thuan CE171497
+*/
+/* styles.css */
+
+/* CSS for the .col-sm-6 element */
+#left-content{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black
+}
+#back_trending{
+    color: white;
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    font-size: 25px;
+}
+#video{
+    max-width: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+#back-video{
+    color: white;
+    font-size: 25px;
+    position: fixed;
+    right:46%;
+    top:42%;
+}
+#next-video{
+    color: white;
+    font-size: 25px;
+    position: fixed;
+    right:46%;
+    bottom:42%;
+
+}
+#creater_video_content{
+    height: 32vh;
+}
+#account-content{
+    height: 12vh;
+}
+.ava-content{
+    display: flex;
+}
+#account-info{
+    padding: 10px 0px 0px 10px;
+}
+#follow-btn{
+    padding-top: 10px;
+    display: flex;
+    justify-content: end;
+}
+#follow-btn-item{
+    height: 40px;
+    width: 90px;
+}
+#video-caption{
+    height: 8vh;
+    padding-left: 40px;
+}
+#video-name{
+    height: 5vh;
+    padding-left: 40px;
+}
+#video-info{
+    height: 10vh;
+    padding-left: 40px;
+}
+#comment{
+    height: 50vh;
+}
+#comment-btn{
+    height: 10vh;
+}
+.comment-btn-item{
+    width: 50vh;
+}
+#comment-content{
+    height: 43vh;
+    overflow: auto;
+}
+.comment-ava{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    height: 5vh;
+}
+.comment-chat{
+    padding-left: 10px;
+}
+#add-comment{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#add-comment-input{
+    height: 5vh;
+}
+.btn-link{
+    display: flex;
+    max-width: 100px;
+    max-height: 40px;
+    padding: 0;
+}

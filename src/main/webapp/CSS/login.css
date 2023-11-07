@@ -1,0 +1,198 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : Sep 19, 2023, 9:54:51 PM
+    Author     : huygi
+*/
+
+/*start css login page*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica', sans-serif;
+}
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.wrapper {
+    position: relative;
+    width: 900px;
+    height: 600px;
+    background: transparent;
+    border: 0px solid #331e45;
+    box-shadow: 0 0 10px #331e45;
+    overflow: hidden;
+}
+.wrapper .form-box {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wrapper .form-box.login {
+    left: 0;
+    padding: 0 60px 0 40px;
+}
+.wrapper .form-box.login .animation {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition: .8s ease;
+    transition-delay: calc(.1s * var(--j));
+}
+
+.wrapper.active .form-box.login .animation {
+    transform: translateX(-120%);
+    opacity: 0;
+    filter: blur(4px);
+    transition-delay: calc(.1s * var(--i));
+}
+.wrapper .form-box.register {
+    right: 0;
+    padding: 0 40px 0 60px;
+    /*pointer-events: none;
+    display: none;*/
+}
+.wrapper.active .form-box.register {
+    pointer-events: auto;
+}
+
+.wrapper .form-box.register .animation {
+    transform: translateX(120%);
+    opacity: 0;
+    filter: blur(4px);
+    transition: .8s ease;
+    transition-delay: calc(.1s * var(--j));
+}
+
+.wrapper.active .form-box.register .animation {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(.1s * var(--i));
+}
+
+.form-box h2 {
+    font-size: 32px;
+    color: #331e45;
+    text-align: center;
+    font-weight: 760;
+}
+
+.form-box .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 25px 0;
+}
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #fff;
+    padding-right: 23px;
+    font-size: 16px;
+    color: #331e45;
+    font-weight: 500;
+    transition: .5s;
+}
+.input-box input:focus,
+.input-box input:valid {
+    border-bottom-color: #331e45;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+    color: #331e45;
+}
+.btn-form {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: 2px solid #331e45;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn-form::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 300%;
+    background: linear-gradient(#331e45, #5d377e, #da037c, #fc1b9a);
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn-form:hover::before {
+    top: 0;
+}
+.form-box .logreg-link {
+    font-size: 14.5px;
+    color: #000;
+    text-align: center;
+    margin: 20px 0 10px;
+}
+
+.logreg-link p a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logreg-link p a:hover {
+    text-decoration: underline;
+}
+.wrapper .bg-animate {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 450px;
+    height: 610px;
+    background: linear-gradient(#331e45, #5d377e, #8753b4, #da037c);
+    box-shadow: 0 0 10px #331e45;
+    transform: translateX(0);
+    filter: blur(0);
+    opacity: 1;
+    transition: .8s ease;
+    transform-orign: right;
+}
+
+.wrapper.active .bg-animate {
+    transform: translateX(-100%);
+    opacity: 1;    
+    filter: blur(0);
+}
+
+/*end css login page*/
