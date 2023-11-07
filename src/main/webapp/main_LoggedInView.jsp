@@ -14,6 +14,12 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
         <title>Stiktify</title>
         <link rel="stylesheet" href="./CSS/style.css"/>
     </head>
@@ -50,17 +56,14 @@
                                                             </button>
                                                         </form>-->
                             <div class=" col-sm-3 Setting">
-                                <div class="dropdownSetting">
+                                <div class="d">
                                     <button class="btn dropdown-toggle" role="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="user-no_login bi bi-person-circle"></i> 
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <form action="PersonalVideoServlet" method="post" class="col-sm-3">
-                                            <button type="submit" style="border: none; background: none;">
-                                                Personal Home
-                                            </button>
-                                        </form>
-                                        <a class="dropdown-item" href="#">Logout</a>
+                                        <a class="dropdown-item" href="#">Personal Home</a>
+                                        <a class="dropdown-item" href="setting">Setting</a>
+                                        <a class="dropdown-item" href="logout">Logout</a>
                                     </div>
                                 </div>
                             </div>
@@ -80,6 +83,7 @@
                                 <ul>
                                     <li class="h2 mb-4 mt-4"><a href="#" onclick="GoTrending()">Trending</a></li>
                                     <li class="h2"><a href="#" onclick="GoExplore()">Explore</a></li>
+                                    <li>${sessionScope.username}</li>
                                 </ul>
                             </div>
                         </nav>
@@ -279,7 +283,7 @@
                                                 button.textContent = 'Follow';
                                             }
                                         }
-                                      
+
         </script>
     </body>
 </html>

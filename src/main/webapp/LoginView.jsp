@@ -21,10 +21,10 @@
                 <h2 class="animation">Login</h2>
                 <form action="login" method="post">
                     <div class="mb-3 mt-3 input-box animation">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter email" name="email">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
                     </div>
                     <div class="mb-3 input-box animation">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" name="pswd">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"/>
                     </div>
                     <div class="form-check mb-3 animation">
                         <label class="form-check-label">

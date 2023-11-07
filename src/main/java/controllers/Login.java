@@ -108,23 +108,17 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = (String) request.getParameter("username");
-        String password = (String) request.getParameter("password");
-        String remember = (String) request.getParameter("remember");
-        HttpSession session = request.getSession();
-        if (remember != null) {
-            session.setAttribute("rememeberusername", username);
-        } else {
-            session.removeAttribute("rememeberusername");
-        }
-//                String name = login(username, password);
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        //String remember =  request.getParameter("remember");
+        //String name = login(username, password);
         UserDAO uDao = new UserDAO();
         Users name = uDao.login(username, password);
         if (name != null) {
-            
-            Cookie cookie = new Cookie("Username", username);
-            cookie.setMaxAge(3*24*60*60);
-            response.addCookie(cookie);
+            HttpSession session = request.getSession();
+//            Cookie cookie = new Cookie("Username", username);
+//            cookie.setMaxAge(3*24*60*60);
+//            response.addCookie(cookie);
             session.setAttribute("username", username);
 
 //           request.setAttribute("Fullname", name);
@@ -132,7 +126,7 @@ public class Login extends HttpServlet {
 //           request.getRequestDispatcher("list.jsp").forward(request, response);
         } else {
             request.setAttribute("Fail", "Username or Password is incorect!");
-            request.getRequestDispatcher("explore").forward(request, response);
+            request.getRequestDispatcher("LoginView.jsp").forward(request, response);
         }
 
     }

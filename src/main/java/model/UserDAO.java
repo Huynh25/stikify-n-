@@ -141,7 +141,7 @@ public class UserDAO extends AbstractDAO<Users> {
         Users user;
         try {
             Statement stm = con.createStatement();
-            ResultSet rs = stm.executeQuery("exec login " + username + "," + "pass");
+            ResultSet rs = stm.executeQuery("exec login " + username + "," + pass);
 
             if (rs.next()) {
                 user = new Users();
