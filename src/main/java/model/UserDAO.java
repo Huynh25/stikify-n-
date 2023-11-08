@@ -60,7 +60,7 @@ public class UserDAO extends AbstractDAO<Users> {
     public Users findByID(String id) {
         try {
 
-            String sql = "Select * from [dbo].[USERS]"
+            String sql = "Select * from [USERS]"
                     + "where UserName =\'" + id + "\'";
             Statement stm = con.createStatement();
             ResultSet rs = stm.executeQuery(sql);
@@ -70,7 +70,7 @@ public class UserDAO extends AbstractDAO<Users> {
                 user.setUsername(rs.getString("UserName"));
                 user.setPassword(rs.getString("Password"));
                 user.setEmail(rs.getString("Email"));
-                user.setFullName(rs.getString("Fullname"));
+                user.setFullName(rs.getNString("Fullname"));
                 user.setGender(rs.getString("Gender"));
                 user.setBirthDate(rs.getDate("Birthdate"));
                 user.setAddress(rs.getString("Address"));
@@ -86,7 +86,7 @@ public class UserDAO extends AbstractDAO<Users> {
     public Users findUserByID(String id) {
         try {
 
-            String sql = "Select * from [dbo].[USERS]"
+            String sql = "Select * from [USERS]"
                     + "where UserName =\'" + id + "\'";
             Statement stm = con.createStatement();
             ResultSet rs = stm.executeQuery(sql);
@@ -111,7 +111,7 @@ public class UserDAO extends AbstractDAO<Users> {
 
     public boolean updateProfile(Users u) {
         try {
-            PreparedStatement ps = con.prepareStatement("exec update_user ?,?,?,?,?,?,? where UserName=?");
+            PreparedStatement ps = con.prepareStatement("exec update_user ?,?,?,?,?,?,?,?");
             ps.setString(1, u.getPassword());
             ps.setString(2, u.getEmail());
             ps.setNString(3, u.getFullName());
@@ -148,11 +148,11 @@ public class UserDAO extends AbstractDAO<Users> {
                 user.setUsername(rs.getString("UserName"));
                 user.setPassword(rs.getString("Password"));
                 user.setEmail(rs.getString("Email"));
-                user.setFullName(rs.getString("Fullname"));
-                user.setGender(rs.getString("Gender"));
+                user.setFullName(rs.getNString("Fullname"));
+                user.setGender(rs.getNString("Gender"));
                 user.setBirthDate(rs.getDate("Birthdate"));
-                user.setAddress(rs.getString("Address"));
-                user.setAvatar(rs.getString("Avatar"));
+                user.setAddress(rs.getNString("Address"));
+                user.setAvatar(rs.getNString("Avatar"));
                 return user;
             }
 

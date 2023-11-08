@@ -261,19 +261,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     margin-top: 20px;
 }
 
-.btn-cancel button,
-.btn-post button {
+.btn-post butotn {
     background-color: #f2f2f2;
     border: none;
     color: #333;
     padding: 10px 20px;
     font-size: 14px;
     cursor: pointer;
-    
-}
 
-.btn-cancel button {
-    margin-right: 10px;
 }
 
 .btn-post button {

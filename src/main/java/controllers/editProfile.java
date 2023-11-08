@@ -68,18 +68,11 @@ public class editProfile extends HttpServlet {
 
         UserDAO userDAO = new UserDAO();
         userEdit = userDAO.findUserByID(currentUser);
-//        request.setAttribute("userEdit", userEdit);
-//
-//        Users thisUser = userDAO.findUserByID(thisUsername);
-//        request.setAttribute("username", thisUser.getUsername());
-//        request.setAttribute("fullname", thisUser.getFullName());
-//        request.setAttribute("avatar", thisUser.getAvatar());
-//        request.setAttribute("password", thisUser.getPassword());
-//        request.setAttribute("email", thisUser.getEmail());
-//        request.setAttribute("gender", thisUser.getGender());
-//        request.setAttribute("Birthdate", thisUser.getBirthDate());
-//        request.setAttribute("address", thisUser.getAddress());
-
+        request.setAttribute("fullname", userEdit.getFullName());
+        request.setAttribute("gender", userEdit.getGender());
+        request.setAttribute("birth", userEdit.getBirthDate());
+        request.setAttribute("avt", userEdit.getAvatar());
+        request.setAttribute("address", userEdit.getAddress());
         request.getRequestDispatcher("editProfile.jsp").forward(request, response);
     }
 
@@ -94,27 +87,29 @@ public class editProfile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
 
         String fullname = request.getParameter("fullname");
         String gender = request.getParameter("gender");
         String avt = request.getParameter("avt");
         Date birth = Date.valueOf(request.getParameter("birth"));
         String address = request.getParameter("address");
+
         userEdit.setFullName(fullname);
         userEdit.setGender(gender);
-        userEdit.setAvatar(avt);
+        if (avt != null) {
+            userEdit.setAvatar(avt);
+        }
         userEdit.setBirthDate(birth);
         userEdit.setAddress(address);
 
         UserDAO editP = new UserDAO();
         boolean OK = editP.updateProfile(userEdit);
         if (OK) {
-            response.sendRedirect("personal");
+            response.sendRedirect("PersonalVideoServlet");
         } else {
-            request.getRequestDispatcher("editProfile.jsp").forward(request, response);
-        }
 
+            request.getRequestDispatcher("editProfile").forward(request, response);
+        }
     }
 
     /**

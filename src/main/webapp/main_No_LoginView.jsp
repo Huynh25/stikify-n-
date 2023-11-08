@@ -48,18 +48,18 @@
                             <div class=" col-sm-3 ">
                                 <a href="login"><i class="user-no_login bi bi-person-circle"></i></a>
                             </div>
-                            <!--                            <div class=" col-sm-3 Setting">
-                                                            <div class="dropdownSetting">
-                                                                <button class="btn  dropdown-toggle" role="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="fa-solid fa-gear"></i>
-                                                                </button>
-                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                    <a class="dropdown-item" href="#">Giới thiệu</a>
-                                                                    <a class="dropdown-item" href="#">Help</a>
-                                                                    <a class="dropdown-item" href="login">Login</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>-->
+<!--                            <div class=" col-sm-3 Setting">
+                                <div class="dropdownSetting">
+                                    <button class="btn  dropdown-toggle" role="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa-solid fa-gear"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Giới thiệu</a>
+                                        <a class="dropdown-item" href="#">Help</a>
+                                        <a class="dropdown-item" href="login">Login</a>
+                                    </div>
+                                </div>
+                            </div>-->
                         </div>
                     </div>
 

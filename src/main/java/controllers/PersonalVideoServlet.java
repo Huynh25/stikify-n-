@@ -61,31 +61,52 @@ public class PersonalVideoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String thisUsername = request.getParameter("Username");
+//        String thisUsername = request.getParameter("Username");
+//        HttpSession session = request.getSession();
+//        String usernameSession = (String) session.getAttribute("username");
+//
+//
+//        VideoDAO videoDAO = new VideoDAO();
+//        UserDAO userDAO = new UserDAO();
+//        List<Video> videos = videoDAO.findVideoByUser(thisUsername);
+//        request.setAttribute("videos", videos);
+//
+//        Users thisUser = userDAO.findUserByID(thisUsername);
+//        request.setAttribute("username", thisUser.getUsername());
+//        request.setAttribute("fullname", thisUser.getFullName());
+//        request.setAttribute("avatar", thisUser.getAvatar());
+//
+//        // Kiểm tra nếu thisUser bằng username, thì set một biến flag
+//        boolean canInteract = thisUsername.equals(usernameSession);
+//        request.setAttribute("canInteract", canInteract);
+//
+//        if (!canInteract) {
+//            String lock = "fa-lock";
+//            request.setAttribute("lock", lock);
+//        }
+//
+//        request.getRequestDispatcher("PersonalHome.jsp").forward(request, response);
         HttpSession session = request.getSession();
-        String usernameSession = (String) session.getAttribute("username");
-
-
-        VideoDAO videoDAO = new VideoDAO();
+        String username = (String) session.getAttribute("username");
+        VideoDAO VideoDAO = new VideoDAO();
         UserDAO userDAO = new UserDAO();
-        List<Video> videos = videoDAO.findVideoByUser(thisUsername);
-        request.setAttribute("videos", videos);
 
-        Users thisUser = userDAO.findUserByID(thisUsername);
-        request.setAttribute("username", thisUser.getUsername());
-        request.setAttribute("fullname", thisUser.getFullName());
-        request.setAttribute("avatar", thisUser.getAvatar());
+        if (username != null) {
+            List<Video> videos = VideoDAO.findVideoByUser(username);
 
-        // Kiểm tra nếu thisUser bằng username, thì set một biến flag
-        boolean canInteract = thisUsername.equals(usernameSession);
-        request.setAttribute("canInteract", canInteract);
+            request.setAttribute("videos", videos);
 
-        if (!canInteract) {
-            String lock = "fa-lock";
-            request.setAttribute("lock", lock);
+            Users thisUser = userDAO.findUserByID(username);
+            request.setAttribute("username", thisUser.getUsername());
+            request.setAttribute("fullname", thisUser.getFullName());
+            request.setAttribute("avatar", thisUser.getAvatar());
+
+            boolean canInteract = true;
+            request.setAttribute("canInteract", canInteract);
+
+            request.getRequestDispatcher("PersonalHome.jsp").forward(request, response);
+
         }
-
-        request.getRequestDispatcher("PersonalHome.jsp").forward(request, response);
     }
 
     /**

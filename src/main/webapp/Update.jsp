@@ -12,6 +12,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <!--        <link rel="stylesheet" href="./CSS/update.css">-->
         <link rel="stylesheet" href="./CSS/update.css">
     </head>
     <body>
@@ -37,11 +38,8 @@
                             </form>
                         </div>
                         <div class="col-sm-4 row user-interact">
-                            <div class="col-sm-4 upload">
-                                <a class="btn" href="Update.jsp"><i class="fa-solid fa-plus"></i>&nbsp; Upload</a>
-                            </div>
-                            <div class=" col-sm-3 ">
-                                <i class="fa-regular fa-message"></i>&nbsp;Chat
+                            <div class=" col-sm-4 ">
+                                <a href="editProfile.jsp" class="btn"><i class="fa-solid fa-pencil"></i>&nbsp; Profile</a>
                             </div>
                             <img class="avatar-header" src="./image/logo.jpg" alt="Avatar">
                         </div>  
@@ -56,7 +54,7 @@
                     <aside class="aside-left  col-sm-2">
                         <nav class="navbar">
                             <div class="navbar-list">
-                               <ul>
+                                <ul>
                                     <li class="h2 mb-4 mt-4"><a href="#" onclick="GoTrending()">Trending</a></li>
                                     <li class="h2"><a href="#" onclick="GoExplore()">Explore</a></li>
                                 </ul>
@@ -166,7 +164,7 @@
                                     </div>
                                     <div class="button-row">
                                         <div class="btn-cancel">
-                                            <button type="reset">Discard</button>
+                                            <button onclick="window.location.href = 'PersonalVideoServlet';"> Cancel</button>
                                         </div>
                                         <div class="btn-post"  type="submit">
                                             <button>
@@ -229,7 +227,7 @@
                     URL.revokeObjectURL(previousFileUrl);
                 }
             });
-            
+
             var shouldScroll = true;
             var videos = [];
             function  loadVideo(i) {
@@ -389,7 +387,8 @@
                 }
             }
             ;
+            
 
-        </script>
-    </body>
+    </script>
+</body>
 </html>
