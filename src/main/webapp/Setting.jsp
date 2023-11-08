@@ -30,7 +30,7 @@
                 align-items: center;
                 justify-content: space-between;
             }
-            
+
             h1 {
                 text-align: center;
                 margin-bottom: 30px;
@@ -122,7 +122,7 @@
                     <div id="changePass" class="collapse">
                         <h3>Change password</h3>
                         <div>
-                            <form action="">
+                            <form action="action" value="changePass">
                                 <div class="mb-3 input-box animation">
                                     <input type="password" class="form-control" id="currentPass" name="currentPass" placeholder="Enter current password" required>
                                 </div>
@@ -143,7 +143,7 @@
                     <div id="changeEmail" class="collapse">
                         <h3>Change email</h3>
                         <div>
-                            <form action="">
+                            <form action="action" value="changeEmail" id="changeEmail">
                                 <div class="mb-3 mt-3 input-box animation">
                                     <input type="email" class="form-control" id="currentEmail" name="currentEmail" placeholder="Enter current email" required>
                                 </div>
@@ -170,7 +170,43 @@
             </div>
 
         </div>
+        </<script>
+<!-- Include jQuery library -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+        <script>
+        $(document).ready(function () {
+                    // Xử lý sự kiện submit của biểu mẫu
+                    $("#passwordForm").submit(function(event) {
+            event.preventDefault(); // Ngăn chặn hành vi mặc định của nút submit
+
+                    // Kiểm tra mật khẩu mới và xác nhận mật khẩu phải giống nhau
+                    var newPassword = $("#newPass").val();
+                    var confirmPass = $("#confirmPass").val();
+                    if (newPassword !== confirmPass) {
+            alert("New password and confirm password do not match.");
+                    return;
+            }
+
+            // Thực hiện các hành động khác, ví dụ: gửi yêu cầu AJAX để thay đổi mật khẩu
+
+            // Sau khi thực hiện thành công, bạn có thể thêm hiệu ứng hoặc thông báo thành công
+            alert("Password changed successfully!");
+            });
+
+            // Hiệu ứng animation khi người dùng nhập vào ô input
+            $(".input-box input").focus(function () {
+                $(this).closest(".input-box").addClass("active");
+            });
+
+            $(".input-box input").blur(function() {
+            if ($(this).val() === "") {
+            $(this).closest(".input-box").removeClass("active");
+            }
+            });
+}              );
+                </script>
+        </script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     </body>
 </html>

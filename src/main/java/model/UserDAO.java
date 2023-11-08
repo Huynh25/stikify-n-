@@ -111,15 +111,15 @@ public class UserDAO extends AbstractDAO<Users> {
 
     public boolean updateProfile(Users u) {
         try {
-            PreparedStatement ps = con.prepareStatement("exec update_user ?,?,?,?,?,?,? where UserName=?");
-            ps.setString(1, u.getPassword());
-            ps.setString(2, u.getEmail());
-            ps.setNString(3, u.getFullName());
-            ps.setNString(4, u.getGender());
-            ps.setDate(5, u.getBirthDate());
-            ps.setNString(6, u.getAddress());
-            ps.setNString(7, u.getAvatar());
-            ps.setString(8, u.getUsername());
+            PreparedStatement ps = con.prepareStatement("exec update_user ?,?,?,?,?,?,?,?");
+            ps.setString(1, u.getUsername());
+            ps.setString(2, u.getPassword());
+            ps.setString(3, u.getEmail());
+            ps.setNString(4, u.getFullName());
+            ps.setNString(5, u.getGender());
+            ps.setDate(6, u.getBirthDate());
+            ps.setNString(7, u.getAddress());
+            ps.setNString(8, u.getAvatar());
 
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -136,7 +136,7 @@ public class UserDAO extends AbstractDAO<Users> {
         }
         return false;
     }
-    
+
     public Users login(String username, String pass) {
         Users user;
         try {
@@ -159,6 +159,28 @@ public class UserDAO extends AbstractDAO<Users> {
         } catch (SQLException ex) {
         }
         return null;
+    }
+
+    public boolean changePass(String user, String newPass) {
+        try {
+            PreparedStatement ps = con.prepareStatement("update users set password=? where username=?");
+            ps.setString(1, newPass);
+            ps.setString(2, user);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+        }
+        return false;
+    }
+
+    public boolean changeEmail(String user, String newEmail) {
+        try {
+            PreparedStatement ps = con.prepareStatement("update users set email=? where username=?");
+            ps.setString(1, newEmail);
+            ps.setString(2, user);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+        }
+        return false;
     }
 
     public static void main(String[] args) {

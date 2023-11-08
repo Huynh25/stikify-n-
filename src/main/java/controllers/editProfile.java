@@ -11,6 +11,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.util.List;
 import model.UserDAO;
@@ -95,26 +97,68 @@ public class editProfile extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        processRequest(request, response);
+        String action = request.getParameter("action");
+        UserDAO uDAO = new UserDAO();
+        switch (action) {
+            case "changePass":
+                String newPass = request.getParameter("newPass");
+                if (uDAO.changePass(userEdit.getUsername(), getMD5Hash(newPass))) {
+                    response.sendRedirect("PersonalVideoServlet");
+                } else {
+                    request.setAttribute("error", "Cannot change your password");
+                }
+                break;
+            case "changeEmail":
+                String newEmail = request.getParameter("newEmail");
+                if (uDAO.changePass(userEdit.getUsername(), newEmail)) {
+                    response.sendRedirect("PersonalVideoServlet");
+                } else {
+                    request.setAttribute("error", "Cannot change your Email");
+                }
+                break;
+            default:
+                String fullname = request.getParameter("fullname");
+                String gender = request.getParameter("gender");
+                String avt = request.getParameter("avt");
+                Date birth = Date.valueOf(request.getParameter("birth"));
+                String address = request.getParameter("address");
+                userEdit.setFullName(fullname);
+                userEdit.setGender(gender);
+                userEdit.setAvatar(avt);
+                userEdit.setBirthDate(birth);
+                userEdit.setAddress(address);
 
-        String fullname = request.getParameter("fullname");
-        String gender = request.getParameter("gender");
-        String avt = request.getParameter("avt");
-        Date birth = Date.valueOf(request.getParameter("birth"));
-        String address = request.getParameter("address");
-        userEdit.setFullName(fullname);
-        userEdit.setGender(gender);
-        userEdit.setAvatar(avt);
-        userEdit.setBirthDate(birth);
-        userEdit.setAddress(address);
-
-        UserDAO editP = new UserDAO();
-        boolean OK = editP.updateProfile(userEdit);
-        if (OK) {
-            response.sendRedirect("personal");
-        } else {
-            request.getRequestDispatcher("editProfile.jsp").forward(request, response);
+                UserDAO editP = new UserDAO();
+                boolean OK = editP.updateProfile(userEdit);
+                if (OK) {
+                    response.sendRedirect("PersonalVideoServlet");
+                } else {
+                    request.getRequestDispatcher("editProfile.jsp").forward(request, response);
+                }
+                break;
         }
 
+    }
+
+    public static String getMD5Hash(String input) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(input.getBytes());
+
+            // Convert byte array to a string representation
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : messageDigest) {
+                String hex = Integer.toHexString(0xFF & b);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**

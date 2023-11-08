@@ -117,7 +117,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     justify-content: space-between;
 }
 .footer{
- padding-bottom: 15vh;
+    padding-bottom: 15vh;
 }
 
 .ava-content img{
@@ -266,12 +266,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 
 .muted {
-    display: none;  
+    display: none;
 }
 
 .btn{
     border: 1px solid rgba(255, 255, 255, 0.3);
-     color: white;
+    color: white;
 }
 .btn:hover{
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -282,8 +282,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 btn-setting{
     border: 1px solid rgba(255, 255, 255, 0.3);
-     color: white;
+    color: white;
 }
 .btn-setting:hover{
     border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.navbar {
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+.navbar-list ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #ff0000;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.username:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }

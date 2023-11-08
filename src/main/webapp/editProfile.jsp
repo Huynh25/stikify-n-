@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     </head>
     <body>
-        <form action="save" method="POST">
+        <form action="editProfile" method="POST">
             <!--            <h1>Edit Profile</h1>-->
             <div class="back">
                 <a href="PersonalHome.jsp"><i class="fa-solid fa-arrow-right-to-bracket fa-rotate-180"></i>Back</a>
@@ -30,7 +30,7 @@
                         <div class="col col-lg-6 mb-4 mb-lg-0">
                             <div class="card mb-3" style="border-radius: .5rem;">
 
-                                <c:forEach items="${sessionScope.userEdit}" var="userEdit">
+                                <!--<c:forEach items="${sessionScope.userEdit}" var="userEdit">-->
                                     <div class="row g-0">
                                         <div class="col-md-4 gradient-custom text-center text-white"
                                              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
@@ -91,13 +91,13 @@
                                             </div>
 
                                             <div class="card-footer">
-                                                <button class="btn btn-primary" onclick="updateProfile()">Save Changes</button> 
-                                                <button class="btn btn-primary" type="reset" onclick=" GoExplore()">Cancel</button> 
+                                                <button class="btn btn-primary" type="submit">Save Changes</button> 
+                                                <a class="btn btn-primary" href="PersonalVideoServlet">Cancel</a> 
                                             </div>
 
                                         </div>
                                     </div>
-                                </c:forEach>
+                                <!--</c:forEach>-->
 
                             </div>
                         </div>

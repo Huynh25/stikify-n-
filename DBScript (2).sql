@@ -48,6 +48,24 @@ END
 GO
 
 go
+create proc update_user
+@username varchar(50),
+@password varchar(32),
+@email varchar(20),
+@fullname nvarchar(100),
+@gender nvarchar(20),
+@birthdate date,
+@address nvarchar(30),
+@avatar nvarchar(30)
+AS 
+BEGIN
+	update users
+	set
+		[Password]=CONVERT(NVARCHAR(32),HashBytes('MD5', @password),2),Email= @email,Fullname = @fullname,Gender = @gender,Birthdate = @birthdate,[Address] = @address, Avatar = @avatar where UserName=@username;
+END
+GO
+
+go
 insert into users
 values
 ('giahuy', CONVERT(NVARCHAR(32),HashBytes('MD5', 'Gh@123'),2),'giahuy@gmail.com',  N'Trần Gia Huy', N'Nam', '2003-01-01', 'VN', 'Img/avt1.png'),
@@ -73,7 +91,7 @@ values
 ('bl',N'Ballad'),
 ('rap',N'Rap'),
 ('lf',N'Lofi'),
-('cmd',N'Comady'),
+('cmd',N'Comedy'),
 ('rm',N'Remix'),
 ('rk',N'Rock'),
 ('blr',N'Bolero');
@@ -139,6 +157,18 @@ create table [COMMENT]
 	[DateCmt] date not null,
 	[UserID] varchar(50) not null references [USERS],
 	[Cmt] ntext not null
+);
+
+Create table [FOLLOWER]
+(
+[Follower] varchar(50) REFERENCES [USERS] ([UserName]),
+[Username] varchar(50) REFERENCES [USERS] ([UserName]),
+);
+
+Create table [FOLLOWING]
+(
+[Following] varchar(50) REFERENCES [USERS] ([UserName]),
+[Username] varchar(50) REFERENCES [USERS] ([UserName]),
 );
 
 GO
